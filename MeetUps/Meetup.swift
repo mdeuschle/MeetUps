@@ -9,3 +9,12 @@
 import Foundation
 
 var firstChange = "This is a change"
+
+var secondChange = 1.3556
+
+func addTwoNumbers(numA: Int, numB: Int) -> Int {
+
+    return numA + numB
+}
+
+
