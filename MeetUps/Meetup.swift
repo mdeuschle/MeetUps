@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
-var firstChange = "This is a change"
 
-var secondChange = 1.3556
+class Meetup {
 
-func addTwoNumbers(numA: Int, numB: Int) -> Int {
 
-    return numA + numB
 }
 
 // making a change
