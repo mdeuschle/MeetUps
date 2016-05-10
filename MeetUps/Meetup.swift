@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+var firstChange = "This is a change"
