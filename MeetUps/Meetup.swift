@@ -13,7 +13,20 @@ import SwiftyJSON
 
 class Meetup {
 
+    var descrip = ""
+    var eventUrl = ""
+    var name = ""
+    var who = ""
+    var rsvp = ""
 
+    func downloadApi(json: JSON) {
+
+        self.descrip = json["description"].stringValue
+        self.eventUrl = json["event_url"].stringValue
+        self.name = json["name"].stringValue
+        self.who = json["group"]["who"].stringValue
+        self.rsvp = String(json["yes_rsvp_count"].intValue)
+    }
 }
 
 
