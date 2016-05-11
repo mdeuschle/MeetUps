@@ -18,23 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ici-if-BLs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ici-if-BLs">
+                                <rect key="frame" x="-4" y="64" width="383" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="32K-jf-mRk"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g4n-NU-Omo">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g4n-NU-Omo">
+                                <rect key="frame" x="-4" y="108" width="383" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="117" id="T91-Cg-nps" customClass="MeetupTableViewCell" customModule="MeetUps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="117"/>
+                                        <rect key="frame" x="0.0" y="28" width="383" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T91-Cg-nps" id="8dm-WS-y05">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="117"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-FQ-CO6">
-                                                    <rect key="frame" x="8" y="8" width="326" height="39"/>
+                                                    <rect key="frame" x="8" y="8" width="334" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="39" id="Vjs-3g-oEX"/>
                                                     </constraints>
@@ -43,7 +46,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpf-HL-DaO">
-                                                    <rect key="frame" x="8" y="52" width="326" height="39"/>
+                                                    <rect key="frame" x="8" y="52" width="334" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="39" id="TQt-SH-w2p"/>
                                                     </constraints>
@@ -71,6 +74,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ici-if-BLs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BXY-Rz-Uc6"/>
+                            <constraint firstItem="ici-if-BLs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Bg6-91-1YQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ici-if-BLs" secondAttribute="trailing" constant="-20" id="C5H-SH-r1B"/>
+                            <constraint firstItem="g4n-NU-Omo" firstAttribute="top" secondItem="ici-if-BLs" secondAttribute="bottom" id="UZf-DK-HY3"/>
+                            <constraint firstItem="g4n-NU-Omo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cki-Eq-fmV"/>
+                            <constraint firstItem="g4n-NU-Omo" firstAttribute="top" secondItem="ici-if-BLs" secondAttribute="bottom" id="erB-PL-JJ6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="g4n-NU-Omo" secondAttribute="bottom" id="krX-0q-Spg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g4n-NU-Omo" secondAttribute="trailing" constant="-20" id="uvh-LW-Htc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uWV-PX-gYC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
