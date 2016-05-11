@@ -19,7 +19,7 @@ class Meetup {
     var who = ""
     var rsvp = ""
 
-    func meetupProperties(json: JSON) {
+    init(json: JSON) {
 
         self.descrip = json["description"].stringValue
         self.eventUrl = json["event_url"].stringValue

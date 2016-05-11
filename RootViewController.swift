@@ -15,7 +15,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var meetupTableView: UITableView!
 
-    var meetup = Meetup()
+    var meetups = [Meetup]()
+    var filteredMeetups = [Meetup]()
+    var meetupsArray = [JSON]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +40,30 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let value = response.result.value {
 
                 let json = JSON(value)
-                print(json.debugDescription)
+                self.meetupsArray = json["results"].arrayValue
+
+                for dic in self.meetupsArray {
+
+                    let meetupObject = Meetup(json: dic)
+                    self.meetups.append(meetupObject)
+                }
             }
-        }
+            dispatch_async(dispatch_get_main_queue(), { 
+               self.meetupTableView.reloadData()
+            })
+        }.resume()
     }
 
-
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.meetups.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! MeetupTableViewCell
+        let meet = meetups[indexPath.row]
+        cell.labelOne.text = meet.name
+        cell.labelTwo.text = meet.eventUrl
+        return cell
     }
 }
