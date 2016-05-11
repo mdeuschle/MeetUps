@@ -18,6 +18,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     var meetups = [Meetup]()
     var filteredMeetups = [Meetup]()
     var meetupsArray = [JSON]()
+    var meet: Meetup!
+    var searchMode = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,20 +52,82 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             dispatch_async(dispatch_get_main_queue(), { 
                self.meetupTableView.reloadData()
+                self.meetups.sortInPlace({ $0.0.name < $0.1.name
+                })
             })
         }.resume()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.meetups.count
+
+        if searchMode {
+            return self.filteredMeetups.count
+        } else {
+            return self.meetups.count
+        }
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! MeetupTableViewCell
-        let meet = meetups[indexPath.row]
-        cell.labelOne.text = meet.name
-        cell.labelTwo.text = meet.eventUrl
+
+        if searchMode {
+
+            let meet = filteredMeetups[indexPath.row]
+            cell.labelOne.text = meet.name
+            cell.labelTwo.text = meet.eventUrl
+
+        } else {
+
+            let filteredMeet = meetups[indexPath.row]
+            cell.labelOne.text = filteredMeet.name
+            cell.labelTwo.text = filteredMeet.eventUrl
+        }
         return cell
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dvc = segue.destinationViewController as! DetailViewController
+
+        if searchMode {
+            let meet: Meetup!
+            meet = filteredMeetups[meetupTableView.indexPathForSelectedRow!.row]
+            dvc.meetup = meet
+
+        } else {
+
+            let filteredMeet: Meetup!
+            filteredMeet = meetups[meetupTableView.indexPathForSelectedRow!.row]
+            dvc.meetup = filteredMeet
+        }
+    }
+
+    func searchBarResultsListButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+
+        if searchBar.text == "" {
+
+            searchMode = false
+            view.endEditing(true)
+            meetupTableView.reloadData()
+
+        } else {
+
+            searchMode = true
+            let searchText = searchBar.text!
+            filteredMeetups = meetups.filter({ $0.name.rangeOfString(searchText) != nil })
+            meetupTableView.reloadData()
+        }
+    }
+
+
+
+
+
+
+
+
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var meetup: Meetup!
+
     @IBOutlet var labelOne: UILabel!
     @IBOutlet var labelTwo: UILabel!
     @IBOutlet var labelThree: UILabel!
@@ -17,6 +19,11 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = meetup.name
+        labelOne.text = meetup.descrip
+        labelTwo.text = meetup.who
+        labelThree.text = meetup.rsvp
 
     }
 
