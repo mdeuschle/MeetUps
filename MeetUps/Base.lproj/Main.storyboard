@@ -62,6 +62,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="labelOne" destination="MiX-FQ-CO6" id="Syb-pO-aEA"/>
+                                            <outlet property="labelTwo" destination="tpf-HL-DaO" id="G2J-cJ-M70"/>
                                             <segue destination="CCq-34-4x9" kind="show" id="yFe-Jm-NgI"/>
                                         </connections>
                                     </tableViewCell>

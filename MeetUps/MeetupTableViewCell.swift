@@ -11,8 +11,8 @@ import UIKit
 class MeetupTableViewCell: UITableViewCell {
 
 
-
-    
+    @IBOutlet var labelOne: UILabel!
+    @IBOutlet var labelTwo: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
