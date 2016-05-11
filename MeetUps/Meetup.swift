@@ -16,7 +16,6 @@ class Meetup {
 
 }
 
-// making a change
 
 
 
