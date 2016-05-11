@@ -10,10 +10,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet var labelOne: UILabel!
+    @IBOutlet var labelTwo: UILabel!
+    @IBOutlet var labelThree: UILabel!
+    @IBOutlet var meetupImage: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 

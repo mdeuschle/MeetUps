@@ -10,6 +10,13 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var meetupTableView: UITableView!
+
+
+
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
